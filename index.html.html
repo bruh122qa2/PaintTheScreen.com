@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <style>
+      .block {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body onclick="createBlock(event)">
+    <div id="container">Paint The Screen</div>
+
+    <script>
+      function createBlock(event) {
+        var block = document.createElement('div');
+        block.classList.add('block');
+        block.style.top = event.clientY + 'px';
+        block.style.left = event.clientX + 'px';
+        block.style.backgroundColor = getRandomColor();
+        document.body.appendChild(block);
+      }
+
+      function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+    </script>
+  </body>
+</html>
